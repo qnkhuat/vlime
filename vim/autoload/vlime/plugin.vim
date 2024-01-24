@@ -1572,7 +1572,7 @@ endif
 
 function! s:NeedToShowArgList(op)
     " Note that {op} may be a string or a list
-    if len(a:op) > 0
+    if len(a:op) > 0 && get(g:, 'vlime_auto_show_arglist', v:false)
         let arglist_buf = bufnr(vlime#ui#ArgListBufName())
         let arglist_win_nr = bufwinnr(arglist_buf)
         let arglist_visible = (arglist_win_nr >= 0)
